@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ROCS</title>
@@ -11,192 +10,195 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Lemonada:wght@500&family=Noto+Serif+Khojki:wght@600&family=Raleway:wght@200&family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
 </head>
 <body>
-
-    <div class="rounded-button">
-        <button href="#less_food" id="go" onclick="go_header()"  style="display: none;" class="mb-4" >☝️</button>
-    </div>
-    <div class="search-button"> 
-        <p class="d-inline-flex gap-1" id="myButton">
-            <button  data-bs-toggle="collapse" href="#collapseWidthExample" role="button" aria-expanded="false" aria-controls="collapseWidthExample">
-                🔍️
-            </button>
-        </p>
-        <div class="collapse" id="collapseWidthExample">
-            <input type="search" id="myInput" class="form-control mb-4" placeholder="Ne içmek istersiniz" >
-
-        </div>
-        
-    </div>
-    <script>
-    document.addEventListener('click', function (e) {
-        var collapseWidthExample = document.getElementById('collapseWidthExample');
-        var myInput = document.getElementById('myInput');
-
-        // Eğer tıklanan element collapseWidthExample içinde değilse ve collapse görünüyorsa
-        if (!collapseWidthExample.contains(e.target) && collapseWidthExample.classList.contains('show')) {
-            collapseWidthExample.classList.remove('show'); // Collapse'ı kapat
-            myInput.value = ''; // Input değerini sıfırla
-
-            // Bu satırı ekleyerek collapse'ın kapanmasını simüle edebilirsiniz
-            e.stopPropagation();
-        }
-    });
-        // Get references to the input and button elements
-        const input = document.getElementById('myInput');
-        const button = document.getElementById('myButton');
-    
-        // Add a click event listener to the button
-        button.addEventListener('click', () => {
-            // Focus on the input field when the button is clicked
-            input.focus();
-        });
-
-    // Card-title'ları içeren bir dizi oluşturuyoruz
-
-    // Card-title'ları ve ilgili section'ları içeren bir dizi oluşturuyoruz
-    const cardData = [
-        { title: "tek kişilik kahvaltı tabağı", section: 'Kahvaltı_sec' },
-        { title: "serpme kahvaltı (2 kişilik)", section: 'Kahvaltı_sec' },
-        { title: "sahanda yumurta", section: 'Kahvaltı_sec' },
-        { title: "kola", section: 'soğuk_sec' },
-        { title: "ice tea", section: 'soğuk_sec' },
-        { title: "x,y,z", section: 'soğuk_sec' },
-        { title: "çay", section: 'sıcak_sec' },
-        { title: "kahve", section: 'sıcak_sec' },
-        { title: "x,y,z", section: 'sıcak_sec' }
-    ];
-
-    // Input alanına bir değer girildiğinde bu fonksiyon çalışacak
-    input.addEventListener('input', () => {
-        // Input değerini alıyoruz ve küçük harfe dönüştürüyoruz
-        const inputValue = input.value.toLowerCase();
-
-        let found = false; // Eşleşme durumunu izlemek için bir bayrak kullanıyoruz
-
-        // Her bir "section" için eşleşen bir "card-title" var mı kontrol ediyoruz
-        const sections = ['Kahvaltı_sec', 'soğuk_sec', 'sıcak_sec'];
-
-        for (const section of sections) {
-            // İlgili section içindeki card-title'ları buluyoruz
-            const sectionCards = cardData.filter(card => card.section === section);
-
-            for (const card of sectionCards) {
-                const title = card.title.toLowerCase();
-                if (title.includes(inputValue)) {
-                    found = true;
-                    // Eşleşen bir card-title bulunduğunda önce tüm "section"ları gizliyoruz
-                    for (const hideSection of sections) {
-                        document.getElementById(hideSection).style.display = "none";
-                    }
-                    // Sonra eşleşen "section"ı görünür hale getiriyoruz
-                    document.getElementById(section).style.display = "block";
-                    
-                    // Eşleşen "section"ın başına kaydırma yapmak için scrollTop kullanıyoruz
-                    const sectionElement = document.getElementById(section);
-                    window.scrollTo({
-                        top: sectionElement.offsetTop,
-                        behavior: 'smooth'
-                    });
-                    document.getElementById("go").style.display = "block";
-
-                    break;
-                }
-            }
-
-            if (found) {
-                break; // Eşleşen bir card-title bulunduğunda döngüyü sonlandırıyoruz
-            }
-        }
-
-        // Eşleşen bir card-title yoksa ilgili "section" ı gizliyoruz
-        if (!found) {
-            for (const section of sections) {
-                document.getElementById(section).style.display = "none";
-            }
-            // Kullanıcıya bir uyarı veriyoruz
-        }
-
-        // Input alanı boşsa bütün "sec" bölümlerini gizliyoruz
-        if (inputValue === "") {
-            for (const section of sections) {
-                document.getElementById(section).style.display = "none";
-            }
-        }
-    });
-</script>
-
-    <!--Header section-->
-<section id="less_food">
-    <div class="container-header container_shadow" style="display: block;">
-            <div class="col-lg-12">
-                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-touch="true">
-                    <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <div class="row h-100 d-flex justify-content-center">
-                            <div class="col-lg-4 d-flex justify-content-evenly" id="tema" >
-                                <button class=" btn-container btn btn-text " id="Kahvaltı_but">Kahvaltı</button>
-                                <button class=" btn-container btn btn-text " id="soğuk_but">Soğuk İçecek</button>
-        
-                            </div>
-                        </div>
-                      </div>
-                      <div class="carousel-item">
-                        <div class="row h-100 d-flex justify-content-center">
-                            <div class="col-lg-4 d-flex justify-content-center" id="tema">
-                                <button class=" btn-container btn btn-text " id="sıcak_but">Sıcak İçecek</button> 
-                            </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+<!--Header section-->
+<section id="Header">
+    <div class="container py-2 ">
+        <div class="row h-100 d-flex justify-content-evenly ">
+            <div class="col-lg-10 d-flex justify-content-center header-text"> 
+                <h1>
+                    <span class="letter1" style="display: inline-block">R</span>
+                    <span class="letter2" style="display: inline-block">O</span>
+                    <span class="letter3" style="display: inline-block">C</span>
+                    <span class="letter4" style="display: inline-block">S</span>
+                    <span class="letter5" style="display: inline-block">C</span>
+                    <span class="letter6" style="display: inline-block">O</span>
+                    <span class="letter7" style="display: inline-block">F</span>
+                    <span class="letter8" style="display: inline-block">F</span> 
+                    <span class="letter9" style="display: inline-block">E</span>
+                </h1>
             </div>
-
-
+            <div class="col-lg-2 d-flex justify-content-center arrow" id=""> 
+                <div class="round_button_header mb-2">
+                    <a href="#slider-food" >▼</a>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
+<!--Header section-->
+    <!--slider section-->
+    <section id="slider">
+        <div class="container-header container_shadow m-1 " style="display: block;">
+                <div class="col-lg-12">
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-touch="true">
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <div class="row h-100 d-flex justify-content-center">
+                                <div class="col-lg-4 d-flex justify-content-evenly " id="tema" >
+                                        <img src="logo.jpg" class="img-fluid image_border " alt="...">
+                                   
+                                    <div class="carousel-caption  d-md-block">
+                                        <h5>real-original-cool-spirit</h5>
+
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="carousel-item">
+                            <div class="row h-100 d-flex justify-content-center">
+                                <div class="col-lg-4 d-flex justify-content-center" id="tema">
+                                    <img src="foto_1.jpg" class="img-fluid" id="img_shadow" alt="...">
+                                    <div class="carousel-caption  d-flex">
+                                        <span class="mb-2">-Konuşmamız gereken konular var!<br></span>
+
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="carousel-item">
+                            <div class="row h-100 d-flex justify-content-center">
+                                <div class="col-lg-4 d-flex justify-content-center" id="tema">
+                                    <img src="foto_2.jpg" class="img-fluid" id="img_shadow" alt="...">
+                                    <div class="carousel-caption  d-md-block">
+                                        <span class="mb-2">-Çalışırken eğlenmek ya da eğlenirken çalışabilmek…</span>
+
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Slider-->
+    <!--Header section-->
+<section id="Header">
+
+    <div class="container ">
+        <div class="row h-100 d-flex justify-content-evenly p-5">
+            <div class="col-lg-12 d-flex justify-content-evenly"> 
+                <div class="mt-5 px-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                        <a href="https://www.instagram.com/rocscoffee/">
+
+                        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+  
+                    </svg>
+                </div>
+                <div class="mt-5 px-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-threads-fill" viewBox="0 0 16 16">
+                        <a href="https://developer.mozilla.org/">
+                        <path d="M6.81 9.204c0-.41.197-1.062 1.727-1.062.469 0 .758.034 1.146.121-.124 1.606-.91 1.818-1.674 1.818-.418 0-1.2-.218-1.2-.877Z"/>
+                        <path d="M2.59 16h10.82A2.59 2.59 0 0 0 16 13.41V2.59A2.59 2.59 0 0 0 13.41 0H2.59A2.59 2.59 0 0 0 0 2.59v10.82A2.59 2.59 0 0 0 2.59 16ZM5.866 5.91c.567-.81 1.315-1.126 2.35-1.126.73 0 1.351.246 1.795.711.443.466.696 1.132.754 1.983.245.103.472.224.678.363.832.559 1.29 1.395 1.29 2.353 0 2.037-1.67 3.806-4.692 3.806-2.595 0-5.291-1.51-5.291-6.004C2.75 3.526 5.361 2 8.033 2c1.234 0 4.129.182 5.217 3.777l-1.02.264c-.842-2.56-2.607-2.968-4.224-2.968-2.675 0-4.187 1.628-4.187 5.093 0 3.107 1.69 4.757 4.222 4.757 2.083 0 3.636-1.082 3.636-2.667 0-1.079-.906-1.595-.953-1.595-.177.925-.651 2.482-2.733 2.482-1.213 0-2.26-.838-2.26-1.936 0-1.568 1.488-2.136 2.663-2.136.44 0 .97.03 1.247.086 0-.478-.404-1.296-1.426-1.296-.911 0-1.16.288-1.45.624l-.024.027c-.202-.135-.875-.601-.875-.601Z"/>
+                      </svg>
+                </div>
+                <div class="mt-5 px-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-browser-chrome" viewBox="0 0 16 16">
+                        <a href="https://developer.mozilla.org/">
+                        <path fill-rule="evenodd" d="M16 8a8.001 8.001 0 0 1-7.022 7.94l1.902-7.098a2.995 2.995 0 0 0 .05-1.492A2.977 2.977 0 0 0 10.237 6h5.511A8 8 0 0 1 16 8ZM0 8a8 8 0 0 0 7.927 8l1.426-5.321a2.978 2.978 0 0 1-.723.255 2.979 2.979 0 0 1-1.743-.147 2.986 2.986 0 0 1-1.043-.7L.633 4.876A7.975 7.975 0 0 0 0 8Zm5.004-.167L1.108 3.936A8.003 8.003 0 0 1 15.418 5H8.066a2.979 2.979 0 0 0-1.252.243 2.987 2.987 0 0 0-1.81 2.59ZM8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/>
+                      </svg>
+                </div> 
+
+
+                  
+            </div>
+        </div>
+    </div>
+</section>
 
 <!--Header section-->
-<section id="Kahvaltı_sec" style="display: none;">
-    <div class="container  container_shadow py-5">
-        <div class="row h-100 align-items-center py-4">
-            <div class="col-lg-12 d-flex justify-content-between">
-                <h1 class="px-4">Menü</h1>
-                <div class="mb-4">
-                    <input type="text" id="searchInput" class="form-control" placeholder="Kahvaltılık ara">
+    <!--slider-food-->
+    <section id="slider-food">
+        <div class="container-header container_shadow" style="display: block;">
+                <div class="col-lg-12">
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-touch="true">
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <div class="row h-100 d-flex justify-content-center">
+                                <div class="col-lg-4 d-flex justify-content-center mt-5" >
+                                    <h1>COFFEE</h1>
+
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="row h-100 d-flex justify-content-center">
+                                <div class="col-lg-4 d-flex justify-content-evenly" id="tema" >
+                                        <button class=" btn-container btn btn-text " id="Kahvaltı_but" >ICED</button>
+                                        <div class = "vertical mt-2"></div>
+                                        <button class=" btn-container btn btn-text " id="soğuk_but" >HOT</button>
+                                </div>
+                                
+                                <hr>
+
+                            </div>
+                          </div>
+                          <div class="carousel-item">
+                            <div class="row h-100 d-flex justify-content-center">
+                                <div class="row h-100 d-flex justify-content-center">
+                                    <div class="col-lg-4 d-flex justify-content-center mt-5" >
+                                        <h1>FOOD</h1>
+                                        
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div class="row h-100 d-flex justify-content-center">
+                                    <div class="col-lg-4 d-flex justify-content-evenly" id="tema" >
+                                        <button class=" btn-container btn btn-text " id="Kahvaltı_but">SANDWİCH</button>
+                                        <div class = "vertical mt-2"></div>
+
+                                        <button class=" btn-container btn btn-text " id="soğuk_but">CAKES</button>
+                                    </div>
+                                    <hr>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                 </div>
             </div>
-            <hr>
         </div>
+    </section>
+        <!--slider-food-->
+<!--Header section-->
+<section id="Kahvaltı_sec" style="display: block;">
+    <div class="container  container_shadow ">
         <div class="row h-100 align-items-center py-4">
             <div class="col-lg-4 d-flex justify-content-center">
-                <div class="card card-spec m-4" style="width: 18rem;" id="kahvaltı_card">
-                    <img src="demo.jpg" class="card-img-top" height="200px" width="200px"  alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title" id="kahvaltı-card-title">Tek kişilik kahvaltı tabağı</h5>
-                      <p class="card-text">225.0 TL</p>
-                    </div>
-                </div>
+                <figure class="figure, img-figure">
+                    <img src="demo.jpg" class="figure-img img-fluid rounded" alt="...">
+                    <figcaption class="figure-caption">A caption for the above image.</figcaption>
+                  </figure>
             </div>
             <div class="col-lg-4 d-flex justify-content-center">
-                <div class="card card-spec m-4" style="width: 18rem;" id="kahvaltı_card">
-                    <img src="demo.jpg" class="card-img-top"  height="200px" width="200px"  alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Serpme Kahvaltı (2 kişilik)</h5>
-                      <p class="card-text">450.0 TL</p>
-                    </div>
-                </div>            </div>
-            <div class="col-lg-4 d-flex justify-content-center">
-                <div class="card card-spec m-4" style="width: 18rem;" id="kahvaltı_card">
-                    <img src="demo.jpg" class="card-img-top" height="200px" width="200px" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Sahanda yumurta</h5>
-                      <p class="card-text">100.0 TL</p>
-                    </div>
+                <figure class="figure, img-figure-r">
+                    <img src="demo.jpg" class="figure-img img-fluid rounded" alt="...">
+                    <figcaption class="figure-caption">A caption for the above image.</figcaption>
+                  </figure>
                 </div>
+            <div class="col-lg-4 d-flex justify-content-center">
+                <figure class="figure, img-figure">
+                    <img src="demo.jpg" class="figure-img img-fluid rounded" alt="...">
+                    <figcaption class="figure-caption">A caption for the above image.</figcaption>
+                  </figure>
             </div>
             
         </div>
@@ -205,129 +207,10 @@
     </div>
 </section>
 <!--Kahvaltılık section-->
-<!--Soğuk içecek section-->
-<section id="soğuk_sec" style="display: none;">
-    <div class="container  container_shadow py-5">
-        <div class="row h-100 align-items-center py-4">
-            <div class="col-lg-12 d-flex justify-content-between">
-                <h1 class="px-4">Menü</h1>
-                <div class="mb-4">
-                    <input type="text" id="searchInput_soguk" class="form-control" placeholder="Kahvaltılık ara">
-                </div>
-            </div>
-            <hr>
-        </div>
-        <div class="row h-100 align-items-center py-4">
-            <div class="col-lg-4 d-flex justify-content-center">
-                <div class="card card-spec m-4" style="width: 18rem;" id="soguk-card">
-                    <img src="demo.jpg" class="card-img-top" height="200px" width="200px"  alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Kola</h5>
-                      <p class="card-text">25.0 TL</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 d-flex justify-content-center">
-                <div class="card card-spec m-4" style="width: 18rem;" id="soguk-card">
-                    <img src="demo.jpg" class="card-img-top"  height="200px" width="200px"  alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">İce tea</h5>
-                      <p class="card-text">20.0 TL</p>
-                    </div>
-                </div>            </div>
-            <div class="col-lg-4 d-flex justify-content-center">
-                <div class="card card-spec m-4" style="width: 18rem;" id="soguk-card">
-                    <img src="demo.jpg" class="card-img-top" height="200px" width="200px" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">X,Y,Z</h5>
-                      <p class="card-text">10.0 TL</p>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-        <div class="row h-100 align-items-center py-4">
-        </div>
-    </div>
-</section>
-<!--Soğuk içecek section-->
-<section id="sıcak_sec" style="display: none;">
-    <div class="container  container_shadow py-5">
-        <div class="row h-100 align-items-center py-4">
-            <div class="col-lg-12 d-flex justify-content-between">
-                <h1 class="px-4">Menü</h1>
-                <div class="mb-4">
-                    <input type="text" id="searchInput_sıcak" class="form-control" placeholder="Kahvaltılık ara">
-                </div>
-            </div>
-            <hr>
-        </div>
-        <div class="row h-100 align-items-center py-4">
-            <div class="col-lg-4 d-flex justify-content-center">
-                <div class="card card-spec m-4" style="width: 18rem; " id="sıcak-card"> 
-                    <img src="demo.jpg" class="card-img-top" height="200px" width="200px"  alt="...">
-                    <div class="card-body">
-                    <div class="justify-content-center d-flex">
-                        <h5 class="card-title">Çay</h5>
-
-                    </div>
-                      <div class="dropdown">
-                        <button class="btn btn-text dropdown-toggle m-5" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                          Çay seçenekleri
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                          <li><a class="dropdown-item" >Küçük : 5.0 TL</a></li>
-                          <li><a class="dropdown-item" >Orta : 10.0 TL </a></li>
-                          <li><a class="dropdown-item" >Kupa : 15.0 tl</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 d-flex justify-content-center">
-                <div class="card card-spec m-4" style="width: 18rem; "id="sıcak-card">
-                    <img src="demo.jpg" class="card-img-top"  height="200px" width="200px"  alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Kahve</h5>
-                      <p class="card-text">2'si bir arada : 20.0 TL <br><hr> 3'ü bir arada : 30.0 TL </p>
-                    </div>
-                </div>            </div>
-            <div class="col-lg-4 d-flex justify-content-center">
-                <div class="card card-spec m-4" style="width: 18rem;" id="sıcak-card">
-                    <img src="demo.jpg" class="card-img-top" height="200px" width="200px" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">X,Y,Z</h5>
-                      <p class="card-text">10.0 TL</p>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-        <div class="row h-100 align-items-center py-4">
-        </div>
-    </div>
-</section>
-<!--Soğuk içecek section-->
-<script src="./main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="main.js"></script>
 
 
-<!--Header section-->
-<section id="Header">
-    <div class="container  container_shadow py-5">
-        <div class="row h-100 align-items-center py-4">
-            <div class="col-lg-12 d-flex justify-content-center">
-                <img src="logo.jpg" class="img-thumbnail rounded mb-4" alt="..."><br>
-            </div>
-            <div class="col-lg-12 d-flex justify-content-center"> 
-                <h1 class="h1-shadow">ROCS COFFEE</h1> <br>
-            </div>
-            <div class="col-lg-12 d-flex justify-content-center">
-                <h5 class="text_shadow">real-original-cool-spirit</h5>
-            </div>
-        </div>
-    </div>
-</section>
-<!--Header section-->
 
 </body>
 </html>
