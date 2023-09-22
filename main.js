@@ -1,15 +1,12 @@
 anime({
-  targets: "div.arrow",
+  targets: "div .arrow",
   translateY: [
-    { value: 100, duration: 500 },
-    { value: 0, duration: 800 },
+    { value: 20, duration: 100 },
+    { value: 0, duration: 1000 },
   ],
-  rotate: {
-    value: "6turn",
-    easing: "easeInOutSine",
-  },
+
   delay: function (el, i, l) {
-    return 3500;
+    return 2500;
   },
   loop: true,
 });
@@ -118,7 +115,7 @@ const scroll_animation_2 = anime({
   duration: 2000,
   easing: 'easeInOutExpo'
 });
-const animateOnscroll = function(div,speed= 200,offset=185){
+const animateOnscroll = function(div,speed= 200,offset=250){
   const scroll_p = window.pageYOffset - div.offsetTop;
   return (scroll_p + offset) / speed;
 }
