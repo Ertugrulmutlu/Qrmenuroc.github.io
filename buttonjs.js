@@ -14,7 +14,7 @@ function iced_section() {
             targets: '#on_secim_section',
             translateX: 1000,
             loop: false,
-            duration: 1000,
+            duration: 750,
             easing: 'easeInOutExpo',
             complete: function() {
 
@@ -27,7 +27,7 @@ function iced_section() {
                     targets: '#ice_secim_section',
                     translateX: 0,
                     loop: false,
-                    duration: 2000,
+                    duration: 750,
                     easing: 'easeInOutExpo',
                     complete: function () {
                         document.body.style.backgroundColor = "white";
@@ -53,7 +53,7 @@ function iced_section() {
             targets: '#hot_secim_section',
             translateX: 1000,
             loop: false,
-            duration: 1000,
+            duration: 750,
             easing: 'easeInOutExpo',
             complete: function() {
                 hot_secim.style.display = "none";
@@ -65,7 +65,7 @@ function iced_section() {
                     targets: '#ice_secim_section',
                     translateX: 0,
                     loop: false,
-                    duration: 2000,
+                    duration: 750,
                     easing: 'easeInOutExpo',
                     complete: function () {
                         document.body.style.backgroundColor = "white";
@@ -86,7 +86,7 @@ function iced_section() {
             targets: '#kek_secim_section',
             translateX: 1000,
             loop: false,
-            duration: 1000,
+            duration: 750,
             easing: 'easeInOutExpo',
             complete: function() {
                 kek_secim.style.display = "none";
@@ -98,7 +98,7 @@ function iced_section() {
                     targets: '#ice_secim_section',
                     translateX: 0,
                     loop: false,
-                    duration: 2000,
+                    duration: 750,
                     easing: 'easeInOutExpo',
                     complete: function () {
                         document.body.style.backgroundColor = "white";
@@ -123,7 +123,7 @@ function hot_section() {
             targets: '#on_secim_section',
             translateX: 1000,
             loop: false,
-            duration: 1000,
+            duration: 750,
             easing: 'easeInOutExpo',
             complete: function() {
                 on_secim.style.display = "none";
@@ -135,7 +135,7 @@ function hot_section() {
                     targets: '#hot_secim_section',
                     translateX: 0,
                     loop: false,
-                    duration: 2000,
+                    duration: 750,
                     easing: 'easeInOutExpo',
                     complete: function () {
                         document.body.style.backgroundColor = "white";
@@ -154,7 +154,7 @@ function hot_section() {
             targets: '#ice_secim_section',
             translateX: 1000,
             loop: false,
-            duration: 1000,
+            duration: 750,
             easing: 'easeInOutExpo',
             complete: function() {
                 ice_secim.style.display = "none";
@@ -166,7 +166,7 @@ function hot_section() {
                     targets: '#hot_secim_section',
                     translateX: 0,
                     loop: false,
-                    duration: 2000,
+                    duration: 750,
                     easing: 'easeInOutExpo',
                     complete: function () {
                         document.body.style.backgroundColor = "white";
@@ -185,7 +185,7 @@ function hot_section() {
             targets: '#kek_secim_section',
             translateX: 1000,
             loop: false,
-            duration: 1000,
+            duration: 750,
             easing: 'easeInOutExpo',
             complete: function() {
                 kek_secim.style.display = "none";
@@ -197,7 +197,7 @@ function hot_section() {
                     targets: '#hot_secim_section',
                     translateX: 0,
                     loop: false,
-                    duration: 2000,
+                    duration: 750,
                     easing: 'easeInOutExpo',
                     complete: function () {
                         document.body.style.backgroundColor = "white";
@@ -225,7 +225,7 @@ function kek_section() {
             targets: '#on_secim_section',
             translateX: 1000,
             loop: false,
-            duration: 1000,
+            duration: 750,
             easing: 'easeInOutExpo',
             complete: function() {
                 on_secim.style.display = "none";
@@ -237,7 +237,7 @@ function kek_section() {
                     targets: '#kek_secim_section',
                     translateX: 0,
                     loop: false,
-                    duration: 2000,
+                    duration: 750,
                     easing: 'easeInOutExpo',
                     complete: function () {
                         document.body.style.backgroundColor = "white";
@@ -256,7 +256,7 @@ function kek_section() {
             targets: '#ice_secim_section',
             translateX: 1000,
             loop: false,
-            duration: 1000,
+            duration: 750,
             easing: 'easeInOutExpo',
             complete: function() {
                 ice_secim.style.display = "none";
@@ -268,7 +268,7 @@ function kek_section() {
                     targets: '#kek_secim_section',
                     translateX: 0,
                     loop: false,
-                    duration: 2000,
+                    duration: 750,
                     easing: 'easeInOutExpo',
                     complete: function () {
                         document.body.style.backgroundColor = "white";
@@ -287,7 +287,7 @@ function kek_section() {
             targets: '#hot_secim_section',
             translateX: 1000,
             loop: false,
-            duration: 1000,
+            duration: 750,
             easing: 'easeInOutExpo',
             complete: function() {
                 hot_secim.style.display = "none";
@@ -299,7 +299,7 @@ function kek_section() {
                     targets: '#kek_secim_section',
                     translateX: 0,
                     loop: false,
-                    duration: 2000,
+                    duration: 750,
                     easing: 'easeInOutExpo',
                     complete: function () {
                         document.body.style.backgroundColor = "white";
